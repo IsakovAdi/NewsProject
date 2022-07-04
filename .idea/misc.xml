@@ -3,8 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Adilet/NewsProjectJ200/app/src/main/res/layout/activity_main.xml" value="0.31875" />
-        <entry key="..\:/Users/Adilet/NewsProjectJ200/app/src/main/res/layout/new_language_item.xml" value="0.3359375" />
+        <entry key="..\:/Users/Adilet/NewsProjectJ200/app/src/main/res/drawable/ic_all.xml" value="0.114" />
+        <entry key="..\:/Users/Adilet/NewsProjectJ200/app/src/main/res/layout/activity_details.xml" value="0.3359375" />
+        <entry key="..\:/Users/Adilet/NewsProjectJ200/app/src/main/res/layout/activity_main.xml" value="0.25290697674418605" />
+        <entry key="..\:/Users/Adilet/NewsProjectJ200/app/src/main/res/layout/fragment_all_news.xml" value="0.3359375" />
+        <entry key="..\:/Users/Adilet/NewsProjectJ200/app/src/main/res/layout/fragment_root.xml" value="0.3359375" />
+        <entry key="..\:/Users/Adilet/NewsProjectJ200/app/src/main/res/layout/fragment_top_news.xml" value="0.3359375" />
+        <entry key="..\:/Users/Adilet/NewsProjectJ200/app/src/main/res/layout/new_language_item.xml" value="0.67" />
+        <entry key="..\:/Users/Adilet/NewsProjectJ200/app/src/main/res/layout/news_item.xml" value="0.3359375" />
+        <entry key="..\:/Users/Adilet/NewsProjectJ200/app/src/main/res/layout/news_language_item_disabled.xml" value="0.3359375" />
+        <entry key="..\:/Users/Adilet/NewsProjectJ200/app/src/main/res/layout/news_language_item_enabled.xml" value="0.67" />
+        <entry key="..\:/Users/Adilet/NewsProjectJ200/app/src/main/res/menu/bottom_menu.xml" value="0.33489583333333334" />
+        <entry key="..\:/Users/Adilet/NewsProjectJ200/app/src/main/res/menu/main_menu.xml" value="0.26944444444444443" />
       </map>
     </option>
   </component>

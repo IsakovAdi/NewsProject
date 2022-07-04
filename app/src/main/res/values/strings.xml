@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NewsProjectJ200</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
