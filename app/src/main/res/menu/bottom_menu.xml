@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/all_news"
+         android:title="All News"
+        android:icon="@drawable/ic_all"/>
+    <item android:id="@+id/top_headlines"
+        android:title="Top"
+        android:icon="@drawable/ic_top"/>
+</menu>
