@@ -1,8 +1,7 @@
-package com.example.newsprojectj200.data.cache.db
+package com.example.newsproject.data.cache.db
 
 import androidx.room.*
-import com.example.newsprojectj200.data.cache.models.ArticleStorage
-import javax.inject.Inject
+import com.example.newsproject.data.cache.models.ArticleStorage
 
 @Database(entities = [ArticleStorage::class], version = 1)
 @TypeConverters(SourceConverter::class)

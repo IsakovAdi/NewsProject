@@ -1,11 +1,12 @@
-package com.example.newsprojectj200.presentation.mappers
+package com.example.newsproject.presentation.mappers
 
-import com.example.newsprojectj200.domain.Mapper
-import com.example.newsprojectj200.domain.models.SourceDomain
-import com.example.newsprojectj200.presentation.model.SourceUi
+import com.example.newsproject.domain.Mapper
+import com.example.newsproject.domain.models.SourceDomain
+import com.example.newsproject.presentation.model.SourceUi
+import javax.inject.Inject
 
-class MapUiSourceToDomain : Mapper<SourceDomain, SourceUi> {
-    override fun map(from: SourceDomain) = from.run {
-        SourceUi(sourceId = sourceId, name = name)
+class MapUiSourceToDomain @Inject constructor() : Mapper<SourceUi, SourceDomain> {
+    override fun map(from: SourceUi) = from.run {
+        SourceDomain(sourceId = sourceId, name = name)
     }
 }

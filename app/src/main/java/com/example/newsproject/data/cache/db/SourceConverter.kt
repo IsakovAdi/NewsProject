@@ -1,7 +1,7 @@
-package com.example.newsprojectj200.data.cache.db
+package com.example.newsproject.data.cache.db
 
 import androidx.room.TypeConverter
-import com.example.newsprojectj200.data.cache.models.SourceStorage
+import com.example.newsproject.data.cache.models.SourceStorage
 import org.json.JSONObject
 
 class SourceConverter {

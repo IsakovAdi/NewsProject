@@ -1,14 +1,15 @@
-package com.example.newsprojectj200.data
+package com.example.newsproject.data
 
-import androidx.lifecycle.Transformations.map
-import com.example.newsapp.domain.models.ArticleDomain
-import com.example.newsprojectj200.data.cache.models.ResourceType
-import com.example.newsprojectj200.data.cache.source.ArticleCacheDataSource
-import com.example.newsprojectj200.data.models.ArticleData
-import com.example.newsprojectj200.domain.ArticlesRepositoryFromCache
-import com.example.newsprojectj200.domain.Mapper
+import com.example.newsproject.data.cache.models.ResourceType
+import com.example.newsproject.data.cache.source.ArticleCacheDataSource
+import com.example.newsproject.data.models.ArticleData
+import com.example.newsproject.domain.ArticlesRepositoryFromCache
+import com.example.newsproject.domain.Mapper
+import com.example.newsproject.domain.models.ArticleDomain
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
 class ArticlesRepositoryFromCacheImpl(

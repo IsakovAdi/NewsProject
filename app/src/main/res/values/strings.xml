@@ -2,4 +2,24 @@
     <string name="app_name">NewsProject</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="network_error">Нету подключение к интернету.</string>
+    <string name="generic_error">Что то пошло не так.</string>
+    <string name="service_unavailable">Ошибка Сервера.</string>
+
+    <array name="all_news_spinner_categories">
+        <item>relevancy</item>
+        <item>popularity</item>
+        <item>publishedAt</item>
+    </array>
+
+    <array name="top_news_spinner_categories">
+        <item>Business</item>
+        <item>Entertainment</item>
+        <item>General</item>
+        <item>Health</item>
+        <item>Science</item>
+        <item>Sports</item>
+        <item>Technology</item>
+    </array>
 </resources>

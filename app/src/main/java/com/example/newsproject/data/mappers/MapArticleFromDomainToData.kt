@@ -1,8 +1,8 @@
-package com.example.newsprojectj200.data.mappers
+package com.example.newsproject.data.mappers
 
-import com.example.newsapp.domain.models.ArticleDomain
-import com.example.newsprojectj200.data.models.ArticleData
-import com.example.newsprojectj200.domain.Mapper
+import com.example.newsproject.domain.models.ArticleDomain
+import com.example.newsproject.data.models.ArticleData
+import com.example.newsproject.domain.Mapper
 
 class MapArticleFromDomainToData(private val mapper: MapSourceFromDomainToData) :
     Mapper<ArticleDomain, ArticleData> {

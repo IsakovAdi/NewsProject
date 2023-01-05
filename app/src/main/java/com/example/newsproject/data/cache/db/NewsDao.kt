@@ -1,10 +1,10 @@
-package com.example.newsprojectj200.data.cache.db
+package com.example.newsproject.data.cache.db
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.newsprojectj200.data.cache.models.ArticleStorage
-import com.example.newsprojectj200.data.cache.models.ResourceType
+import com.example.newsproject.data.cache.models.ArticleStorage
+import com.example.newsproject.data.cache.models.ResourceType
 import kotlinx.coroutines.flow.Flow
 
 @Dao

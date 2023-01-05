@@ -1,12 +1,12 @@
-package com.example.newsprojectj200.data
+package com.example.newsproject.data
 
-import com.example.newsapp.domain.models.ArticleDomain
-import com.example.newsprojectj200.data.cache.models.ResourceType
-import com.example.newsprojectj200.data.cache.source.ArticleCacheDataSource
-import com.example.newsprojectj200.data.cloud.source.ArticleCloudDataSource
-import com.example.newsprojectj200.data.models.ArticleData
-import com.example.newsprojectj200.domain.Mapper
-import com.example.newsprojectj200.domain.ArticlesRepositoryFromCloud
+import com.example.newsproject.domain.models.ArticleDomain
+import com.example.newsproject.data.cache.models.ResourceType
+import com.example.newsproject.data.cache.source.ArticleCacheDataSource
+import com.example.newsproject.data.cloud.source.ArticleCloudDataSource
+import com.example.newsproject.data.models.ArticleData
+import com.example.newsproject.domain.Mapper
+import com.example.newsproject.domain.ArticlesRepositoryFromCloud
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 
@@ -30,40 +30,6 @@ class ArticlesRepositoryFromCloudImpl(
     }.map(mapper::map)
         .flowOn(Dispatchers.Default)
 
-    override fun getTopHeadlines(
-        keyword: String,
-        country: String,
-        category: String,
-    ): Flow<List<ArticleDomain>> = articleCacheDataSource.fetchAllArticleFromDatabaseObservable(ResourceType.TOP_NEWS)
-        .flatMapLatest {
-            handleFetchTopHeadlinesArticlesFromCache(articlesFromCache = it,
-                keyword = keyword,
-                country = country,
-                category = category)
-        }.map(mapper::map)
-        .flowOn(Dispatchers.Default)
-
-    private fun handleFetchTopHeadlinesArticlesFromCache(
-        articlesFromCache: List<ArticleData>,
-        keyword: String,
-        country: String,
-        category: String,
-    ): Flow<List<ArticleData>> =
-        if (articlesFromCache.isEmpty()) {
-            articleCloudDataSource.fetchTopHeadlinesArticlesFromCloud(
-                keyword = keyword,
-                country = country,
-                category = category
-            )
-                .onEach {
-                    saveArticlesToCache(it, ResourceType.TOP_NEWS)
-                }
-                .flowOn(Dispatchers.Default)
-        } else {
-            flow { emit(articlesFromCache) }
-        }
-
-
     private fun handleFetchAllArticlesFromCache(
         articlesFromCache: List<ArticleData>,
         keyword: String,
@@ -80,6 +46,39 @@ class ArticlesRepositoryFromCloudImpl(
                 }
                 .flowOn(Dispatchers.Default)
         } else articleCacheDataSource.fetchAllArticleFromDatabaseObservable(resourceType = ResourceType.ALL_NEWS)
+
+    override fun getTopHeadlines(
+        keyword: String,
+        category: String,
+    ): Flow<List<ArticleDomain>> = articleCacheDataSource.fetchAllArticleFromDatabaseObservable(
+        ResourceType.TOP_NEWS)
+        .flatMapLatest {
+            handleFetchTopHeadlinesArticlesFromCache(articlesFromCache = it,
+                keyword = keyword,
+                category = category)
+        }.map(mapper::map)
+        .flowOn(Dispatchers.Default)
+
+    private fun handleFetchTopHeadlinesArticlesFromCache(
+        articlesFromCache: List<ArticleData>,
+        keyword: String,
+        category: String,
+    ): Flow<List<ArticleData>> =
+        if (articlesFromCache.isEmpty()) {
+            articleCloudDataSource.fetchTopHeadlinesArticlesFromCloud(
+                keyword = keyword,
+                category = category
+            )
+                .onEach {
+                    saveArticlesToCache(it, ResourceType.TOP_NEWS)
+                }
+                .flowOn(Dispatchers.Default)
+        } else {
+            flow { emit(articlesFromCache) }
+        }
+
+
+
 
 
     private suspend fun saveArticlesToCache(

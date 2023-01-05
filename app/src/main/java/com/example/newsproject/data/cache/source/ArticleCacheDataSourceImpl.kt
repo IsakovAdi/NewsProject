@@ -1,11 +1,11 @@
-package com.example.newsprojectj200.data.cache.source
+package com.example.newsproject.data.cache.source
 
-import com.example.newsprojectj200.data.cache.db.NewsDao
-import com.example.newsprojectj200.data.cache.mappers.MapArticleFromDataToStorage
-import com.example.newsprojectj200.data.cache.models.ArticleStorage
-import com.example.newsprojectj200.data.cache.models.ResourceType
-import com.example.newsprojectj200.data.models.ArticleData
-import com.example.newsprojectj200.domain.Mapper
+import com.example.newsproject.data.cache.db.NewsDao
+import com.example.newsproject.data.cache.mappers.MapArticleFromDataToStorage
+import com.example.newsproject.data.cache.models.ArticleStorage
+import com.example.newsproject.data.cache.models.ResourceType
+import com.example.newsproject.data.models.ArticleData
+import com.example.newsproject.domain.Mapper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.debounce
@@ -36,7 +36,6 @@ class ArticleCacheDataSourceImpl @Inject constructor(
     override fun fetchAllArticleFromDatabaseSingle(resourceType: ResourceType): List<ArticleData> =
         newsDao.fetchAllArticlesFromDatabaseSingle(resourceType = resourceType)
             .map(mapArticleFromCacheToData::map)
-
 
     override suspend fun fetchArticleFromDatabaseByUrl(articleUrl: String): ArticleData =
         mapArticleFromCacheToData.map(newsDao.fetchArticleFromDatabaseByUrl(articleUrl))

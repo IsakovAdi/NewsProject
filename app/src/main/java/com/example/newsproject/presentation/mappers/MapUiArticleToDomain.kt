@@ -1,13 +1,13 @@
-package com.example.newsprojectj200.presentation.mappers
+package com.example.newsproject.presentation.mappers
 
-import com.example.newsapp.domain.models.ArticleDomain
-import com.example.newsprojectj200.domain.Mapper
-import com.example.newsprojectj200.presentation.model.ArticleUi
+import com.example.newsproject.domain.models.ArticleDomain
+import com.example.newsproject.domain.Mapper
+import com.example.newsproject.presentation.model.ArticleUi
 
 class MapUiArticleToDomain(private val mapper: MapUiSourceToDomain) :
-    Mapper<ArticleDomain, ArticleUi> {
-    override fun map(from: ArticleDomain) = from.run {
-        ArticleUi(
+    Mapper<ArticleUi, ArticleDomain> {
+    override fun map(from: ArticleUi) = from.run {
+        ArticleDomain(
             author = author,
             title = title,
             description = description,

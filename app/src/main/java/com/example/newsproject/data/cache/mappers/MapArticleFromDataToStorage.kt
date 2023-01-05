@@ -1,13 +1,10 @@
-package com.example.newsprojectj200.data.cache.mappers
+package com.example.newsproject.data.cache.mappers
 
-import com.example.newsprojectj200.data.cache.models.ArticleStorage
-import com.example.newsprojectj200.data.cache.models.ResourceType
-import com.example.newsprojectj200.data.cache.models.SourceStorage
-import com.example.newsprojectj200.data.cloud.models.ArticleCloud
-import com.example.newsprojectj200.data.cloud.models.SourceCloud
-import com.example.newsprojectj200.data.models.ArticleData
-import com.example.newsprojectj200.data.models.SourceData
-import com.example.newsprojectj200.domain.Mapper
+import com.example.newsproject.data.cache.models.ArticleStorage
+import com.example.newsproject.data.cache.models.ResourceType
+import com.example.newsproject.data.cache.models.SourceStorage
+import com.example.newsproject.data.models.ArticleData
+import com.example.newsproject.data.models.SourceData
 
 interface MapArticleFromDataToStorage {
     fun map(from: ArticleData, resourceType: ResourceType): ArticleStorage

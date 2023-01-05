@@ -1,10 +1,10 @@
-package com.example.newsprojectj200.di
+package com.example.newsproject.di
 
-import com.example.newsprojectj200.data.cache.db.NewsDao
-import com.example.newsprojectj200.data.cloud.NewsApi
-import com.example.newsprojectj200.data.cloud.provide.*
-import com.example.newsprojectj200.domain.ClearCacheUseCase
-import com.example.newsprojectj200.domain.ClearCacheUseCaseImpl
+import com.example.newsproject.data.cache.db.NewsDao
+import com.example.newsproject.data.cloud.provide.*
+import com.example.newsproject.data.cloud.NewsApi
+import com.example.newsproject.domain.iteractors.ClearCacheUseCase
+import com.example.newsproject.domain.iteractors.ClearCacheUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

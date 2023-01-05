@@ -1,6 +1,5 @@
-package com.example.newsapp.domain.models
+package com.example.newsproject.domain.models
 
-import com.example.newsprojectj200.domain.models.SourceDomain
 
 data class ArticleDomain(
     val author:String?,

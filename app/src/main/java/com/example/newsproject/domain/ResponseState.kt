@@ -1,4 +1,4 @@
-package com.example.newsprojectj200.domain
+package com.example.newsproject.domain
 
 enum class Status {
     SUCCESS,

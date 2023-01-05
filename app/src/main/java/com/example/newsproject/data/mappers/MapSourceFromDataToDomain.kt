@@ -1,8 +1,8 @@
-package com.example.newsprojectj200.data.mappers
+package com.example.newsproject.data.mappers
 
-import com.example.newsprojectj200.data.models.SourceData
-import com.example.newsprojectj200.domain.Mapper
-import com.example.newsprojectj200.domain.models.SourceDomain
+import com.example.newsproject.data.models.SourceData
+import com.example.newsproject.domain.Mapper
+import com.example.newsproject.domain.models.SourceDomain
 import javax.inject.Inject
 
 class MapSourceFromDataToDomain @Inject constructor() : Mapper<SourceData, SourceDomain> {

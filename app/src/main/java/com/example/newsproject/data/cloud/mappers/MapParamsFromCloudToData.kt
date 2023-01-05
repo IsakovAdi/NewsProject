@@ -1,9 +1,8 @@
-package com.example.newsprojectj200.data.cloud.mappers
+package com.example.newsproject.data.cloud.mappers
 
-import com.example.newsapp.domain.models.ParamsDomain
-import com.example.newsprojectj200.data.cloud.models.ParamsCloud
-import com.example.newsprojectj200.data.models.ParamsData
-import com.example.newsprojectj200.domain.Mapper
+import com.example.newsproject.data.cloud.models.ParamsCloud
+import com.example.newsproject.data.models.ParamsData
+import com.example.newsproject.domain.Mapper
 
 class MapParamsFromCloudToData : Mapper<ParamsCloud, ParamsData> {
     override fun map(from: ParamsCloud)= from.run {

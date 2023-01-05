@@ -1,7 +1,7 @@
-package com.example.newsprojectj200.domain
+package com.example.newsproject.domain.iteractors
 
 import android.content.Context
-import com.example.newsprojectj200.data.cache.db.NewsDao
+import com.example.newsproject.data.cache.db.NewsDao
 import com.google.gson.Gson
 import java.util.*
 

@@ -1,8 +1,7 @@
-package com.example.newsprojectj200.presentation
+package com.example.newsproject.presentation
 
 import android.app.Application
-import com.example.newsprojectj200.data.cache.db.NewsDao
-import com.example.newsprojectj200.domain.ClearCacheUseCase
+import com.example.newsproject.domain.iteractors.ClearCacheUseCase
 import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

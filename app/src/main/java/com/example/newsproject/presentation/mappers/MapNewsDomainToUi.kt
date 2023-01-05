@@ -1,8 +1,8 @@
-package com.example.newsprojectj200.presentation.mappers
+package com.example.newsproject.presentation.mappers
 
-import com.example.newsapp.domain.models.NewsDomain
-import com.example.newsprojectj200.domain.Mapper
-import com.example.newsprojectj200.presentation.model.NewsUi
+import com.example.newsproject.domain.models.NewsDomain
+import com.example.newsproject.domain.Mapper
+import com.example.newsproject.presentation.model.NewsUi
 
 class MapNewsDomainToUi(private val mapper: MapListArticlesDomainToUi) :
     Mapper<NewsDomain, NewsUi> {

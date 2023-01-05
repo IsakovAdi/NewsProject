@@ -1,4 +1,4 @@
-package com.example.newsprojectj200.data.cloud.models
+package com.example.newsproject.data.cloud.models
 
 class ParamsCloud(
     val title: String,

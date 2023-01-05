@@ -1,9 +1,9 @@
-package com.example.newsprojectj200.data.cache.models
+package com.example.newsproject.data.cache.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.newsprojectj200.data.cache.models.ArticleStorage.Companion.ARTICLES_TABLE
+import com.example.newsproject.data.cache.models.ArticleStorage.Companion.ARTICLES_TABLE
 import java.util.*
 
 @Entity(tableName = ARTICLES_TABLE)

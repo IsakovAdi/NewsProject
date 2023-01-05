@@ -1,4 +1,4 @@
-package com.example.newsprojectj200.data.cloud
+package com.example.newsproject.data.cloud
 
 object Utils {
     const val BASE_URL = "https://newsapi.org/v2/"

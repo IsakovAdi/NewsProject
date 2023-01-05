@@ -1,9 +1,9 @@
-package com.example.newsprojectj200.di
+package com.example.newsproject.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.newsprojectj200.data.cache.db.AllNewsDatabase
-import com.example.newsprojectj200.data.cache.db.NewsDao
+import com.example.newsproject.data.cache.db.AllNewsDatabase
+import com.example.newsproject.data.cache.db.NewsDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,9 +1,8 @@
-package com.example.newsprojectj200.data.cloud.mappers
+package com.example.newsproject.data.cloud.mappers
 
-import com.example.newsprojectj200.data.cloud.models.SourceCloud
-import com.example.newsprojectj200.data.models.SourceData
-import com.example.newsprojectj200.domain.Mapper
-import com.example.newsprojectj200.domain.models.SourceDomain
+import com.example.newsproject.data.cloud.models.SourceCloud
+import com.example.newsproject.data.models.SourceData
+import com.example.newsproject.domain.Mapper
 import javax.inject.Inject
 
 class MapSourceFromCloudToData @Inject constructor() : Mapper<SourceCloud, SourceData> {

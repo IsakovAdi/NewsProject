@@ -1,4 +1,4 @@
-package com.example.newsprojectj200.data.cloud.provide
+package com.example.newsproject.data.cloud.provide
 
 import retrofit2.Retrofit
 

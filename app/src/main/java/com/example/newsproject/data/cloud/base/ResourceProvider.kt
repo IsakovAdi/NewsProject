@@ -1,8 +1,8 @@
-package com.example.newsprojectj200.data.cloud.base
+package com.example.newsproject.data.cloud.base
 
 import android.content.Context
 import androidx.annotation.StringRes
-import com.example.newsprojectj200.R
+import com.example.newsproject.R
 import retrofit2.HttpException
 import java.net.ConnectException
 import java.net.SocketTimeoutException

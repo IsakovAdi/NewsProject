@@ -1,4 +1,4 @@
-package com.example.newsprojectj200.presentation.model
+package com.example.newsproject.presentation.model
 
 data class ParamsUi(
     val title: String,

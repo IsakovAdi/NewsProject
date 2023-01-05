@@ -1,8 +1,8 @@
-package com.example.newsprojectj200.data.cache.source
+package com.example.newsproject.data.cache.source
 
 
-import com.example.newsprojectj200.data.cache.models.ResourceType
-import com.example.newsprojectj200.data.models.ArticleData
+import com.example.newsproject.data.cache.models.ResourceType
+import com.example.newsproject.data.models.ArticleData
 import kotlinx.coroutines.flow.Flow
 
 interface ArticleCacheDataSource {

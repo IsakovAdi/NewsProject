@@ -1,7 +1,8 @@
-package com.example.newsprojectj200.domain
+package com.example.newsproject.domain
 
-import com.example.newsapp.domain.models.ArticleDomain
+import com.example.newsproject.domain.models.ArticleDomain
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
 interface ArticlesRepositoryFromCache {
     fun getAllSavedArticles(): Flow<List<ArticleDomain>>

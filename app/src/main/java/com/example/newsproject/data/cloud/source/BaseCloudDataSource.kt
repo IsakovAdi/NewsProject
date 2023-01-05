@@ -1,8 +1,8 @@
-package com.example.newsprojectj200.data.cloud.source
+package com.example.newsproject.data.cloud.source
 
-import com.example.newsprojectj200.data.cloud.base.ResourceProvider
-import com.example.newsprojectj200.domain.Mapper
-import com.example.newsprojectj200.domain.Resource
+import com.example.newsproject.data.cloud.base.ResourceProvider
+import com.example.newsproject.domain.Mapper
+import com.example.newsproject.domain.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response

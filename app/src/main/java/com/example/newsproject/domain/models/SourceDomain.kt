@@ -1,4 +1,4 @@
-package com.example.newsprojectj200.domain.models
+package com.example.newsproject.domain.models
 
 data class SourceDomain(
     val sourceId: String?,

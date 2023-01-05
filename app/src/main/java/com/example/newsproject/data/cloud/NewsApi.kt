@@ -1,8 +1,8 @@
-package com.example.newsprojectj200.data.cloud
+package com.example.newsproject.data.cloud
 
-import com.example.newsprojectj200.data.cloud.Endpoints.EVERYTHING
-import com.example.newsprojectj200.data.cloud.Endpoints.TOP_HEADLINES
-import com.example.newsprojectj200.data.cloud.models.NewsCloud
+import com.example.newsproject.data.cloud.Endpoints.EVERYTHING
+import com.example.newsproject.data.cloud.Endpoints.TOP_HEADLINES
+import com.example.newsproject.data.cloud.models.NewsCloud
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -21,7 +21,7 @@ interface NewsApi {
     @GET(TOP_HEADLINES)
     suspend fun getTopHeadlines(
         @Query("q") keyword: String,
-        @Query("country") country: String,
+        @Query("country") country:String = "ru",
         @Query("category") category: String,
         @Query("apiKey") apiKey: String,
     ): Response<NewsCloud>

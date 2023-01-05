@@ -1,10 +1,10 @@
-package com.example.newsprojectj200.data.cloud.source
+package com.example.newsproject.data.cloud.source
 
-import com.example.newsprojectj200.data.cloud.NewsApi
-import com.example.newsprojectj200.data.cloud.Utils
-import com.example.newsprojectj200.data.cloud.models.ArticleCloud
-import com.example.newsprojectj200.data.models.ArticleData
-import com.example.newsprojectj200.domain.Mapper
+import com.example.newsproject.data.cloud.models.ArticleCloud
+import com.example.newsproject.data.cloud.NewsApi
+import com.example.newsproject.data.cloud.Utils
+import com.example.newsproject.data.models.ArticleData
+import com.example.newsproject.domain.Mapper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -34,13 +34,11 @@ class ArticleCloudDataSourceImpl(
 
     override fun fetchTopHeadlinesArticlesFromCloud(
         keyword: String,
-        country: String,
         category: String,
     ): Flow<List<ArticleData>> = flow {
         emit(
             api.getTopHeadlines(
                 keyword = keyword,
-                country = country,
                 category = category,
                 apiKey = Utils.API_KEY))
     }.flowOn(Dispatchers.IO)

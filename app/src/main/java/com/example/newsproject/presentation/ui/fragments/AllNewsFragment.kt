@@ -1,60 +1,126 @@
 package com.example.newsproject.presentation.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.newsproject.R
+import com.example.newsproject.databinding.FragmentAllNewsBinding
+import com.example.newsproject.presentation.model.ArticleUi
+import com.example.newsproject.presentation.ui.activities.DetailsActivity
+import com.example.newsproject.presentation.ui.adapters.NewsAdapter
+import com.example.newsproject.presentation.ui.viewModels.AllNewsViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.onEach
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+@AndroidEntryPoint
+class AllNewsFragment : Fragment(),
+    NewsAdapter.RecyclerOnClickListener,
+    AdapterView.OnItemSelectedListener {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AllNewsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class AllNewsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private val binding: FragmentAllNewsBinding by lazy {
+        FragmentAllNewsBinding.inflate(layoutInflater)
+    }
+
+    private val spinnerAdapter by lazy {
+        ArrayAdapter.createFromResource(requireContext(),
+            R.array.all_news_spinner_categories,
+            (android.R.layout.simple_spinner_item))
+    }
+
+    private val newsAdapter: NewsAdapter by lazy {
+        NewsAdapter(this@AllNewsFragment)
+    }
+
+    private val viewModel by viewModels<AllNewsViewModel>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_all_news, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AllNewsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AllNewsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUi()
+        observeViewModel()
     }
+
+    private fun setUi() {
+        binding.categorySpinner.onItemSelectedListener = this@AllNewsFragment
+        binding.categorySpinner.adapter = spinnerAdapter
+        binding.newsRv.adapter = newsAdapter
+    }
+
+    private fun observeViewModel() {
+        viewModel.error.onEach {
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+        }
+
+        lifecycleScope.launchWhenResumed {
+            viewModel.allNewsSharedFlow.collect {
+                newsAdapter.articlesList = it
+            }
+        }
+    }
+
+    override fun onClick(articleUi: ArticleUi) {
+        startActivity(DetailsActivity.launchDetailsActivity(requireContext(),
+            articleUi.url.toString()))
+    }
+
+    override fun onSaveClick(articleUi: ArticleUi) {
+        viewModel.saveArticle(articleUi = articleUi)
+    }
+
+    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+        when (position) {
+            0 -> viewModel.updateSortBy(RELEVANCY)
+            1 -> viewModel.updateSortBy(POPULARITY)
+            2 -> viewModel.updateSortBy(PUBLISHED_AT)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.main_menu, menu)
+        val searchView = menu.findItem(R.id.search)?.actionView as SearchView
+        searchView.queryHint = "Search news"
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                viewModel.updateKeyword(query.toString())
+                Log.d("MyText", query.toString())
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                viewModel.updateKeyword(newText.toString())
+                Log.d("MyText", newText.toString())
+                return false
+            }
+        })
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) = Unit
+
+    private companion object {
+        const val RELEVANCY = "relevancy"
+        const val POPULARITY = "popularity"
+        const val PUBLISHED_AT = "publishedAt"
+    }
+
 }

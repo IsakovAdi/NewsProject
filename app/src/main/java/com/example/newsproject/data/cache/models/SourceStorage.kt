@@ -1,4 +1,4 @@
-package com.example.newsprojectj200.data.cache.models
+package com.example.newsproject.data.cache.models
 
 import androidx.room.ColumnInfo
 import androidx.room.PrimaryKey

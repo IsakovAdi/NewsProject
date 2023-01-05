@@ -1,4 +1,4 @@
-package com.example.newsapp.domain.models
+package com.example.newsproject.domain.models
 
 data class NewsDomain(
     val status:String,
